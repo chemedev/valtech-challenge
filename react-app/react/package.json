@@ -1,0 +1,22 @@
+{
+  "name": "app",
+  "version": "0.0.0",
+  "dependencies": {
+    "apollo-client": "^2.6.10",
+    "react": "^16.14.0",
+    "react-apollo": "^3.1.5",
+    "react-dom": "^16.14.0",
+    "react-intl": "^3.12.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.11",
+    "@types/ramda": "^0.30.0",
+    "@types/react": "^18.3.3",
+    "@vtex/tsconfig": "^0.6.0",
+    "apollo-cache-inmemory": "^1.6.6",
+    "graphql": "^14.7.0",
+    "vtex.css-handles": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.css-handles@1.0.1/public/@types/vtex.css-handles",
+    "vtex.order-manager": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.order-manager@0.12.0/public/@types/vtex.order-manager",
+    "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.134.2/public/@types/vtex.render-runtime"
+  }
+}

@@ -1,0 +1,13 @@
+{
+	"store.custom#cookie-fortune": {
+		"blocks": ["flex-layout.row#cookie-fortune"]
+	},
+
+	"flex-layout.row#cookie-fortune": {
+		"children": ["flex-layout.col#cookie-fortune"]
+	},
+
+	"flex-layout.col#cookie-fortune": {
+		"children": ["cookie-fortune"]
+	}
+}

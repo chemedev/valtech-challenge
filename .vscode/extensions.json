@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "aaron-bond.better-comments",
+    "biomejs.biome",
+    "eamodio.gitlens",
+    "vivaxy.vscode-conventional-commits"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "name": "valtech.challenge",
+  "private": true,
+  "description": "Valtech Challenge",
+  "author": "Juan E. Chemello",
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@vtex/tsconfig": "^0.6.0",
+    "typescript": "^5.6.3"
+  }
+}
