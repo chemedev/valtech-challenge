@@ -1,0 +1,6 @@
+query getRandomPhrase {
+  getRandomPhrase {
+    id
+    CookieFortune
+  }
+}
