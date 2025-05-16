@@ -1,0 +1,21 @@
+{
+  "name": "node-cookie-fortune",
+  "vendor": "valtech",
+  "version": "0.0.1",
+  "title": "node-cookie-fortune",
+  "description": "node-cookie-fortune",
+  "dependencies": {},
+  "builders": {
+    "docs": "0.x",
+    "graphql": "1.x",
+    "node": "6.x"
+  },
+  "credentialType": "absolute",
+  "policies": [
+    { "name": "ADMIN_DS" },
+    { "name": "outbound-access", "attrs": { "host": "api.vtex.com" } },
+    { "name": "colossus-fire-event" },
+    { "name": "colossus-write-logs" }
+  ],
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}
