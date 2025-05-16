@@ -1,20 +1,12 @@
 import type React from 'react'
-import { useState } from 'react'
 import { useCssHandles } from 'vtex.css-handles'
 
-import './styles.css'
+import { useClient } from './client'
 import ErrorBoundary from './utils/ErrorBoundary'
-import { getPhrase, getNumber } from './service'
-import type { Phrase } from './service'
 
-const CSS_HANDLES = ['container'] as const
+const CSS_HANDLES = ['button', 'container', 'number', 'phrase'] as const
 
 type AppProps = React.PropsWithChildren
-
-enum Status {
-  IDLE = 'idle',
-  LOADING = 'loading'
-}
 
 export function formatLuckyNumber(n: number) {
   const str = n.toString()
@@ -23,41 +15,36 @@ export function formatLuckyNumber(n: number) {
 
 const Content = (_props: AppProps) => {
   const { handles } = useCssHandles(CSS_HANDLES)
-  const [status, setStatus] = useState<Status>(Status.IDLE)
-  const [phrase, setPhrase] = useState<Phrase['CookieFortune']>()
-  const [number, setNumber] = useState<number>()
+  const { getPhrase, getNumber, phrase, number, loadingNumber, loadingPhrase } =
+    useClient()
+  const loading = loadingNumber || loadingPhrase
+  const randomPhrase = phrase?.getRandomPhrase.CookieFortune ?? ''
+  const randomNumber = number?.getRandomNumber.number ?? null
+  const formattedNumber = randomNumber ? formatLuckyNumber(randomNumber) : null
 
   const getLucky = async () => {
     try {
-      setStatus(Status.LOADING)
-
-      const [phraseRes, numberRes] = await Promise.allSettled([
-        getPhrase(),
-        getNumber()
-      ])
-
-      if (phraseRes.status === 'fulfilled' && phraseRes.value.data)
-        setPhrase(phraseRes.value.data.CookieFortune)
-
-      if (numberRes.status === 'fulfilled' && numberRes.value.data)
-        setNumber(numberRes.value.data.number)
+      await Promise.allSettled([getPhrase(), getNumber()])
     } catch (error) {
       console.log('CookieFortune: getPhraseHandler', error)
-    } finally {
-      setStatus(Status.IDLE)
     }
   }
 
   return (
     <div className={handles.container}>
-      {phrase && <h5>{phrase}</h5>}
-      {number && <h3>{formatLuckyNumber(number)}</h3>}
+      {!loading && (
+        <>
+          <h5 className={handles.phrase}>{randomPhrase}</h5>
+          <h3 className={handles.number}>{formattedNumber}</h3>
+        </>
+      )}
       <button
-        disabled={status === Status.LOADING}
+        className={handles.button}
+        disabled={loading}
         onClick={getLucky}
         type="button"
       >
-        {status === Status.LOADING ? 'Loading...' : 'Click'}
+        {loading ? 'Loading...' : 'Click'}
       </button>
     </div>
   )

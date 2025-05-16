@@ -1,0 +1,5 @@
+query getRandomNumber {
+  getRandomNumber {
+    number
+  }
+}
