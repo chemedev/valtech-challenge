@@ -1,0 +1,23 @@
+type CookieFortune {
+  id: ID!
+  CookieFortune: String!
+}
+
+type RandomNumber {
+  number: Int!
+}
+
+input CookieFortuneInput {
+  CookieFortune: String!
+}
+
+type Query {
+  getAllPhrases: [CookieFortune]
+  getRandomNumber: RandomNumber
+  getRandomPhrase: CookieFortune
+}
+
+type Mutation {
+  addPhrase(data: CookieFortuneInput!): CookieFortune
+  deletePhrase(id: ID!): Boolean
+}

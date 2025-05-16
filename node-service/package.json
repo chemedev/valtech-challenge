@@ -1,0 +1,9 @@
+{
+  "name": "service",
+  "private": true,
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/node": "^12.12.21",
+    "typescript": "^3.9.6"
+  }
+}
