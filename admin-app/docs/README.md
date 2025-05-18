@@ -11,3 +11,8 @@ This admin app relies on `node-cookie-fortune` service available on the account.
 ```
 /admin/cookie-fortune/phrases
 ```
+
+<br>
+<br>
+
+###  [→ Main README](../../README.md)

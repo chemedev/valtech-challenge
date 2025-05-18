@@ -49,3 +49,8 @@ mutation {
   deletePhrase(id: ID!) 
 }
 ```
+
+<br>
+<br>
+
+###  [→ Main README](../../README.md)
