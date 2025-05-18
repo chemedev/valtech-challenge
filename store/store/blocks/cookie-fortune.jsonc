@@ -1,13 +1,55 @@
 {
-	"store.custom#cookie-fortune": {
-		"blocks": ["flex-layout.row#cookie-fortune"]
-	},
+  "store.custom#cookie-fortune": {
+    "blocks": ["flex-layout.row#cookie-fortune"],
+    "parent": {
+      "footer": "footer#empty"
+    }
+  },
 
-	"flex-layout.row#cookie-fortune": {
-		"children": ["flex-layout.col#cookie-fortune"]
-	},
+  "flex-layout.row#cookie-fortune": {
+    "children": ["flex-layout.col#cookie-fortune"],
+    "props": {
+      "blockClass": "cookie-fortune",
+      "preserveLayoutOnMobile": true
+    }
+  },
 
-	"flex-layout.col#cookie-fortune": {
-		"children": ["cookie-fortune"]
-	}
+  "flex-layout.col#cookie-fortune": {
+    "children": [
+      "flex-layout.row#cookie-fortune_title",
+      "flex-layout.row#cookie-fortune_app"
+    ],
+    "props": {
+      "blockClass": "cookie-fortune",
+      "preventVerticalStretch": true
+    }
+  },
+
+  "flex-layout.row#cookie-fortune_title": {
+    "children": ["rich-text#cookie-fortune_title"]
+  },
+  "rich-text#cookie-fortune_title": {
+    "props": {
+      "blockClass": "cookie-fortune_title",
+      "text": "# Cookie Fortune",
+      "textPosition": "CENTER"
+    }
+  },
+
+  "flex-layout.row#cookie-fortune_app": {
+    "children": ["cookie-fortune"],
+    "props": {
+      "blockClass": "cookie-fortune_app"
+    }
+  },
+
+  "footer#empty": {
+    "blocks": ["footer-layout.desktop#empty", "footer-layout.mobile#empty"]
+  },
+  "footer-layout.desktop#empty": {
+    "children": []
+  },
+  "footer-layout.mobile#empty": {
+    "children": []
+  }
 }

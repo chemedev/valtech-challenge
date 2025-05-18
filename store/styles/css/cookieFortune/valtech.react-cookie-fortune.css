@@ -1,0 +1,80 @@
+.container {
+  margin-block: 2rem;
+  text-align: center;
+}
+
+.button {
+  --g: conic-gradient(#000 0 0) no-repeat text;
+  -webkit-text-stroke: 1px #000;
+  animation: none;
+  background: var(--g) 0, var(--g) 1ch, var(--g) 2ch, var(--g) 3ch, var(--g) 4ch,
+    var(--g) 5ch, var(--g) 6ch;
+  color: #0000;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 40px;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: fit-content;
+}
+.button::before {
+  content: "Get Lucky";
+}
+.button--loading {
+  animation: l20-0 1.5s linear infinite alternate, l20-1 3s linear infinite;
+}
+@keyframes l20-0 {
+  0% {
+    background-size: 1ch 0, 1ch 0, 1ch 0, 1ch 0, 1ch 0, 1ch 0, 1ch 0;
+  }
+  25% {
+    background-size: 1ch 100%, 1ch 50%, 1ch 0, 1ch 0, 1ch 0, 1ch 50%, 1ch 100%;
+  }
+  50% {
+    background-size: 1ch 100%, 1ch 100%, 1ch 50%, 1ch 0, 1ch 50%, 1ch 100%, 1ch
+      100%;
+  }
+  75% {
+    background-size: 1ch 100%, 1ch 100%, 1ch 100%, 1ch 50%, 1ch 100%, 1ch 100%,
+      1ch 100%;
+  }
+}
+@keyframes l20-1 {
+  0%,
+  50% {
+    background-position-y: 100%;
+  }
+  50.01% {
+    background-position-y: 0;
+  }
+}
+
+.content_container {
+  margin-block: 2rem;
+}
+
+.dice {
+  animation: spin 3s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.phrase {
+  font-size: 1.125rem;
+  font-style: italic;
+  font-weight: normal;
+  text-wrap-style: pretty;
+}
+
+.number {
+  font-size: 1rem;
+  font-weight: normal;
+}
