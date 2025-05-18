@@ -1,36 +1,21 @@
-const ENTITY = 'CF'
-const MAX_SIZE = 100
+import type { Phrase } from '../typings/types'
+import * as CONSTANTS from '../utils/constants'
 
-// TODO: allow pagination param for more queries
 export const queries = {
   getAllPhrases: async (_: unknown, __: unknown, ctx: Context) => {
-    return ctx.clients.masterdata.searchDocuments({
-      dataEntity: ENTITY,
+    return ctx.clients.masterdata.searchDocuments<Phrase>({
+      dataEntity: CONSTANTS.MD_ENTITY,
       fields: ['id', 'CookieFortune'],
-      pagination: { page: 1, pageSize: MAX_SIZE }
+      pagination: { page: 1, pageSize: CONSTANTS.PAGE_MAX_SIZE }
     })
   },
 
-  //? Not using getAllPhrases and filtering cause might be more than MAX_SIZE records.
   getRandomPhrase: async (_: unknown, _args: unknown, ctx: Context) => {
-    const {
-      pagination: { total }
-    } = await ctx.clients.masterdata.searchDocumentsWithPaginationInfo({
-      dataEntity: ENTITY,
-      fields: [],
-      pagination: { page: 1, pageSize: 1 }
-    })
-
-    const randomPage = Math.floor(Math.random() * total) + 1
-
-    const { data } =
-      await ctx.clients.masterdata.searchDocumentsWithPaginationInfo({
-        dataEntity: ENTITY,
-        fields: ['id', 'CookieFortune'],
-        pagination: { page: randomPage, pageSize: 1 }
-      })
-
-    return data[0]
+    const appId = process.env.VTEX_APP_ID ?? ''
+    const settings = await ctx.clients.apps.getAppSettings(appId)
+    const phrases = await ctx.clients.customMasterdata.getAllPhrases(settings)
+    const randomPhrase = Math.floor(Math.random() * phrases.length)
+    return phrases[randomPhrase]
   }
 }
 
@@ -43,7 +28,7 @@ export const mutations = {
     const { CookieFortune } = args.data
 
     const { DocumentId } = await ctx.clients.masterdata.createDocument({
-      dataEntity: ENTITY,
+      dataEntity: CONSTANTS.MD_ENTITY,
       fields: { CookieFortune }
     })
 
@@ -52,9 +37,9 @@ export const mutations = {
 
   deletePhrase: async (_: unknown, args: { id: string }, ctx: Context) => {
     await ctx.clients.masterdata.deleteDocument({
-      dataEntity: ENTITY,
+      dataEntity: CONSTANTS.MD_ENTITY,
       id: args.id
     })
-    return true
+    return { id: args.id }
   }
 }
