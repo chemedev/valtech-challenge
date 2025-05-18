@@ -1,10 +1,19 @@
 import type React from 'react'
-import { useCssHandles } from 'vtex.css-handles'
+import { applyModifiers, useCssHandles } from 'vtex.css-handles'
 
 import { useClient } from './client'
 import ErrorBoundary from './utils/ErrorBoundary'
 
-const CSS_HANDLES = ['button', 'container', 'number', 'phrase'] as const
+const CSS_HANDLES = [
+  'container',
+  'content_container',
+  'button',
+  'dice',
+  'number',
+  'number_container',
+  'phrase',
+  'phrase_container'
+] as const
 
 type AppProps = React.PropsWithChildren
 
@@ -17,10 +26,10 @@ const Content = (_props: AppProps) => {
   const { handles } = useCssHandles(CSS_HANDLES)
   const { getPhrase, getNumber, phrase, number, loadingNumber, loadingPhrase } =
     useClient()
-  const loading = loadingNumber || loadingPhrase
   const randomPhrase = phrase?.getRandomPhrase.CookieFortune ?? ''
   const randomNumber = number?.getRandomNumber.number ?? null
   const formattedNumber = randomNumber ? formatLuckyNumber(randomNumber) : null
+  const loading = loadingNumber || loadingPhrase
 
   const getLucky = async () => {
     try {
@@ -32,20 +41,24 @@ const Content = (_props: AppProps) => {
 
   return (
     <div className={handles.container}>
-      {!loading && (
-        <>
-          <h5 className={handles.phrase}>{randomPhrase}</h5>
-          <h3 className={handles.number}>{formattedNumber}</h3>
-        </>
-      )}
       <button
-        className={handles.button}
+        className={applyModifiers(handles.button, loading ? 'loading' : '')}
         disabled={loading}
         onClick={getLucky}
         type="button"
-      >
-        {loading ? 'Loading...' : 'Click'}
-      </button>
+      />
+
+      {randomNumber && randomPhrase && (
+        <div className={handles.content_container}>
+          <div className={handles.phrase_container}>
+            <h3 className={handles.phrase}>«{randomPhrase}»</h3>
+          </div>
+          <div className={handles.dice}>🎲</div>
+          <div className={handles.number_container}>
+            <h5 className={handles.number}>{formattedNumber}</h5>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

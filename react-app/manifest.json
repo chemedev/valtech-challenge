@@ -9,8 +9,8 @@
     "store": "0.x"
   },
   "dependencies": {
-    "vtex.css-handles": "1.x",
-    "valtech.node-cookie-fortune": "0.x"
+    "valtech.node-cookie-fortune": "0.x",
+    "vtex.css-handles": "1.x"
   },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }
