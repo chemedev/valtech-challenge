@@ -1,0 +1,6 @@
+query getAllPhrases {
+  getAllPhrases {
+    id
+    CookieFortune
+  }
+}

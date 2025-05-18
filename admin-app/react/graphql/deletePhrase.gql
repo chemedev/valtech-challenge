@@ -1,0 +1,5 @@
+mutation deletePhrase($id: ID!) {
+  deletePhrase(id: $id) {
+    id
+  }
+}

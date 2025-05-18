@@ -1,0 +1,6 @@
+{
+  "admin.app.phrases": {
+    "component": "PhrasesLayout",
+    "path": "/admin/app/cookie-fortune/phrases"
+  }
+}
