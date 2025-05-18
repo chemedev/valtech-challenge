@@ -5,6 +5,7 @@
   "title": "react-cookie-fortune",
   "description": "react-cookie-fortune",
   "builders": {
+    "docs": "0.x",
     "react": "3.x",
     "store": "0.x"
   },
