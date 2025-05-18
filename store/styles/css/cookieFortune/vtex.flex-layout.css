@@ -1,0 +1,12 @@
+.flexRow--cookie-fortune {
+  background-image: linear-gradient(135deg, #81ffef 10%, #f067b4 100%);
+  overflow: hidden;
+}
+
+.flexRowContent--cookie-fortune {
+  height: calc(100dvh - 84px);
+
+  @media (width > 1025px) {
+    height: calc(100dvh - 128px);
+  }
+}
