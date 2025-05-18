@@ -1,20 +1,20 @@
 import {
-  IOClients,
   Service,
   type ParamsContext,
   type RecorderState,
   type ServiceContext
 } from '@vtex/api'
 
+import { Clients } from './clients'
 import { resolvers } from './resolvers'
 
 declare global {
-  type Context = ServiceContext<IOClients, RecorderState>
+  type Context = ServiceContext<Clients, RecorderState>
 }
 
-export default new Service<IOClients, RecorderState, ParamsContext>({
+export default new Service<Clients, RecorderState, ParamsContext>({
   clients: {
-    implementation: IOClients,
+    implementation: Clients,
     options: {
       default: {
         exponentialTimeoutCoefficient: 2,

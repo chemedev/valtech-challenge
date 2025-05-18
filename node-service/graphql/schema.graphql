@@ -17,7 +17,11 @@ type Query {
   getRandomPhrase: CookieFortune
 }
 
+type DeleteResponse {
+  id: ID!
+}
+
 type Mutation {
   addPhrase(data: CookieFortuneInput!): CookieFortune
-  deletePhrase(id: ID!): Boolean
+  deletePhrase(id: ID!): DeleteResponse
 }
