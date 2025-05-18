@@ -26,3 +26,8 @@ Add the `cookie-fortune` block where you need it.
 | `number_container`  |
 | `phrase`            |
 | `phrase_container`  |
+
+<br>
+<br>
+
+###  [→ Main README](../../README.md)
