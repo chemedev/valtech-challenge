@@ -1,0 +1,12 @@
+{
+  "section": "storeFront",
+  "titleId": "admin-cookie-fortune.navigation.label-group",
+  "adminVersion": 4,
+  "subSection": "admin-cookie-fortune.navigation.label-group",
+  "subSectionItems": [
+    {
+      "labelId": "admin-cookie-fortune.navigation.phrases",
+      "path": "/admin/cookie-fortune/phrases"
+    }
+  ]
+}
