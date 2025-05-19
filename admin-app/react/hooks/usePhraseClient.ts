@@ -1,7 +1,7 @@
 import { useMutation, useQuery } from 'react-apollo'
-import ADD_PHRASE from './graphql/addPhrase.gql'
-import DELETE_PHRASE from './graphql/deletePhrase.gql'
-import GET_ALL_PHRASES from './graphql/getAllPhrases.gql'
+import ADD_PHRASE from '../graphql/addPhrase.gql'
+import DELETE_PHRASE from '../graphql/deletePhrase.gql'
+import GET_ALL_PHRASES from '../graphql/getAllPhrases.gql'
 
 export type Phrase = {
   id: string

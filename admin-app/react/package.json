@@ -5,17 +5,13 @@
     "apollo-client": "^2.6.10",
     "react": "^19.1.0",
     "react-apollo": "^3.1.5",
-    "react-dom": "^19.1.0",
-    "react-intl": "^7.1.11",
-    "swr": "^2.3.3"
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@types/node": "^11.12.1",
     "@types/react": "^19.1.4",
     "graphql": "^16.11.0",
     "typescript": "3.9.7",
-    "valtech.admin-cookie-fortune": "https://jchemello--valtech.myvtex.com/_v/private/typings/linked/v1/valtech.admin-cookie-fortune@0.0.1+build1747363586/public/@types/valtech.admin-cookie-fortune",
-    "valtech.node-cookie-fortune": "https://jchemello--valtech.myvtex.com/_v/private/typings/linked/v1/valtech.node-cookie-fortune@0.0.1+build1747361317/public/@types/valtech.node-cookie-fortune",
     "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.136.1/public/@types/vtex.render-runtime",
     "vtex.styleguide": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.styleguide@9.146.13/public/@types/vtex.styleguide"
   }
