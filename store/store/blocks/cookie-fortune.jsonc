@@ -41,15 +41,5 @@
     "props": {
       "blockClass": "cookie-fortune_app"
     }
-  },
-
-  "footer#empty": {
-    "blocks": ["footer-layout.desktop#empty", "footer-layout.mobile#empty"]
-  },
-  "footer-layout.desktop#empty": {
-    "children": []
-  },
-  "footer-layout.mobile#empty": {
-    "children": []
   }
 }
