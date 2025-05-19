@@ -13,9 +13,10 @@ export const queries = {
   getRandomPhrase: async (_: unknown, _args: unknown, ctx: Context) => {
     const appId = process.env.VTEX_APP_ID ?? ''
     const settings = await ctx.clients.apps.getAppSettings(appId)
-    const phrases = await ctx.clients.customMasterdata.getAllPhrases(settings)
-    const randomPhrase = Math.floor(Math.random() * phrases.length)
-    return phrases[randomPhrase]
+    const total = await ctx.clients.customMasterdata.getTotal(settings)
+    const rnd = Math.floor(Math.random() * total)
+    const [phrase] = await ctx.clients.customMasterdata.getPhrase(settings, rnd)
+    return phrase
   }
 }
 

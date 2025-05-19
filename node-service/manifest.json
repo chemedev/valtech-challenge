@@ -25,18 +25,12 @@
     }
   ],
   "settingsSchema": {
-    "title": "admin/settings.title",
-    "description": "admin/settings.description",
+    "title": "Service Setup",
+    "description": "Setup application key",
     "type": "object",
     "properties": {
-      "appKey": {
-        "type": "string",
-        "title": "admin/settings.appKey"
-      },
-      "appToken": {
-        "type": "string",
-        "title": "admin/settings.appToken"
-      }
+      "appKey": { "type": "string", "title": "Key" },
+      "appToken": { "type": "string", "title": "Token" }
     }
   },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"

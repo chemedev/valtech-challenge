@@ -11,12 +11,36 @@ export class MasterDataCustom extends ExternalClient {
     })
   }
 
-  public async getAllPhrases(appSettings: AppSettings): Promise<Phrase[]> {
-    return this.http.get(
+  public async getTotal(appSettings: AppSettings): Promise<number> {
+    const response = await this.http.getRaw(
       '/api/dataentities/CF/search?_fields=id,CookieFortune',
       {
         headers: {
-          'REST-Range': 'resources=0-100',
+          'REST-Range': 'resources=0-1',
+          ...(appSettings?.appKey && {
+            'X-VTEX-API-AppKey': appSettings.appKey
+          }),
+          ...(appSettings?.appToken && {
+            'X-VTEX-API-AppToken': appSettings.appToken
+          })
+        }
+      }
+    )
+
+    const total = Number(response.headers['rest-content-range'].split('/')[1])
+
+    return total
+  }
+
+  public async getPhrase(
+    appSettings: AppSettings,
+    idx: number
+  ): Promise<Phrase[]> {
+    return this.http.get(
+      `/api/dataentities/CF/search?_fields=id,CookieFortune&_=${Date.now()}`,
+      {
+        headers: {
+          'REST-Range': `resources=${idx}-${idx + 1}`,
           ...(appSettings?.appKey && {
             'X-VTEX-API-AppKey': appSettings.appKey
           }),
