@@ -2,13 +2,13 @@
   "name": "node-cookie-fortune",
   "vendor": "valtech",
   "version": "0.0.1",
-  "title": "node-cookie-fortune",
-  "description": "node-cookie-fortune",
+  "title": "Service Cookie Fortune",
+  "description": "Service providing GraphQL API for Cookie Fortune requirement",
   "dependencies": {},
   "builders": {
     "docs": "0.x",
     "graphql": "1.x",
-    "node": "6.x"
+    "node": "7.x"
   },
   "credentialType": "absolute",
   "policies": [
